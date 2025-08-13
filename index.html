@@ -5,109 +5,150 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Optimize Hub</title>
 <style>
+  /* Reset básico */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
   body {
-    background-color: #121212;
-    color: #00ff99;
-    font-family: Arial, sans-serif;
-    margin: 0; padding: 20px;
-  }
-  h1 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  .tabs {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0f111a;
+    color: #e0e0e0;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    flex-direction: column;
   }
-  .tab-label {
-    padding: 12px 25px;
+  header {
+    background: #121827;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header h1 {
+    color: #00ff99;
+  }
+  nav {
+    display: flex;
+    gap: 1rem;
+  }
+  nav button {
+    background: transparent;
+    border: none;
+    color: #e0e0e0;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
     cursor: pointer;
-    background-color: #222;
-    margin: 0 4px;
-    border-radius: 6px 6px 0 0;
-    transition: background-color 0.3s;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
   }
-  .tab-label:hover {
-    background-color: #333;
+  nav button:hover {
+    border-bottom: 2px solid #00ff99;
   }
-  input[type="radio"] {
-    display: none;
-  }
-  input[type="radio"]:checked + .tab-label {
-    background-color: #00ff99;
-    color: #000;
+  nav button.active {
+    border-bottom: 2px solid #00ff99;
     font-weight: bold;
   }
-  .tab-content {
-    background-color: #1a1a1a;
-    border-radius: 0 6px 6px 6px;
-    padding: 25px;
-    max-width: 700px;
+  main {
+    flex-grow: 1;
+    padding: 2rem;
+    max-width: 900px;
     margin: 0 auto;
   }
-  .tab {
+  section {
     display: none;
+    animation: fadeIn 0.3s ease forwards;
   }
-  input[type="radio"]:checked + .tab-label + .tab {
+  section.active {
     display: block;
   }
-  p {
-    line-height: 1.6;
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
   }
-  /* Estilo para o link discord */
-  .discord-link {
+  h2 {
     color: #00ff99;
+    margin-bottom: 1rem;
+  }
+  p {
+    line-height: 1.5;
+  }
+  a.discord-link {
+    color: #7289da;
+    font-weight: bold;
     text-decoration: none;
   }
-  .discord-link:hover {
+  a.discord-link:hover {
     text-decoration: underline;
+  }
+  /* Responsividade simples */
+  @media (max-width: 600px) {
+    nav {
+      flex-wrap: wrap;
+    }
   }
 </style>
 </head>
 <body>
-
-<h1>Optimize Hub</h1>
-
-<div class="tabs">
-  <input type="radio" id="inicio" name="tabs" checked>
-  <label class="tab-label" for="inicio">Início</label>
-  <div class="tab-content tab">
+<header>
+  <h1>Optimize Hub</h1>
+  <nav>
+    <button class="tab-button active" data-tab="inicio">Início</button>
+    <button class="tab-button" data-tab="spoofer">Spoofer para Jogos</button>
+    <button class="tab-button" data-tab="discord">Discord</button>
+    <button class="tab-button" data-tab="arquivos">Arquivos</button>
+    <button class="tab-button" data-tab="metodos">Métodos</button>
+    <button class="tab-button" data-tab="cheats">Cheats</button>
+  </nav>
+</header>
+<main>
+  <section id="inicio" class="active">
     <h2>Bem-vindo ao Optimize Hub</h2>
-    <p>Aqui você encontra Spoofer, Métodos, Cheats, Otimização e Arquivos no Discord.</p>
-  </div>
+    <p>Seu centro de otimizações, arquivos e ferramentas exclusivas.</p>
+  </section>
 
-  <input type="radio" id="spoofer" name="tabs">
-  <label class="tab-label" for="spoofer">Spoofer</label>
-  <div class="tab-content tab">
-    <h2>Spoofer</h2>
-    <p>Explicação detalhada sobre o Spoofer, como ele funciona, usos e downloads.</p>
-  </div>
+  <section id="spoofer">
+    <h2>Spoofer para Jogos</h2>
+    <p>Aqui você encontra ferramentas para proteger seu hardware e evitar banimentos em jogos.</p>
+  </section>
 
-  <input type="radio" id="metodos" name="tabs">
-  <label class="tab-label" for="metodos">Métodos</label>
-  <div class="tab-content tab">
-    <h2>Métodos</h2>
-    <p>Conteúdo explicando os métodos disponíveis e suas funcionalidades.</p>
-  </div>
+  <section id="discord">
+    <h2>Discord</h2>
+    <p>Junte-se ao nosso servidor oficial no Discord para suporte, novidades e comunidade.</p>
+    <p><a href="https://discord.gg/FQCzHs7kTQ" target="_blank" rel="noopener" class="discord-link">Entrar no Discord</a></p>
+  </section>
 
-  <input type="radio" id="otimizacao" name="tabs">
-  <label class="tab-label" for="otimizacao">Otimização</label>
-  <div class="tab-content tab">
-    <h2>Otimização</h2>
-    <p>Ferramentas para melhorar o desempenho do seu sistema com máxima performance.</p>
-  </div>
-
-  <input type="radio" id="arquivos" name="tabs">
-  <label class="tab-label" for="arquivos">Arquivos</label>
-  <div class="tab-content tab">
+  <section id="arquivos">
     <h2>Arquivos</h2>
     <p>Downloads seguros e organizados de scripts, configs e muito mais.</p>
-  </div>
+  </section>
 
-  <!-- Aba Discord não é radio, pois vai direto para o link -->
-  <a href="https://discord.gg/Eff6JHBy" target="_blank" class="tab-label" style="margin-left:10px;">Discord</a>
-</div>
+  <section id="metodos">
+    <h2>Métodos</h2>
+    <p>Aprenda diferentes métodos de otimização e truques para melhorar seu desempenho.</p>
+  </section>
 
+  <section id="cheats">
+    <h2>Cheats</h2>
+    <p>Cheats selecionados e atualizados para os seus jogos favoritos.</p>
+  </section>
+</main>
+<script>
+  // Seleciona todas as abas
+  const buttons = document.querySelectorAll('.tab-button');
+  const sections = document.querySelectorAll('main section');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove a classe active de todas as abas e seções
+      buttons.forEach(b => b.classList.remove('active'));
+      sections.forEach(s => s.classList.remove('active'));
+
+      // Adiciona active na aba clicada e seção correspondente
+      btn.classList.add('active');
+      const tab = btn.getAttribute('data-tab');
+      document.getElementById(tab).classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>
