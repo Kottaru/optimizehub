@@ -5,150 +5,101 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Optimize Hub</title>
 <style>
-  /* Reset básico */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #0f111a;
-    color: #e0e0e0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0f111a;
+    color: #00ff7f;
   }
   header {
-    background: #121827;
-    padding: 1rem 2rem;
+    background-color: #121625;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    padding: 1rem 2rem;
+    align-items: center;
   }
   header h1 {
-    color: #00ff99;
+    margin: 0;
+    color: #00ff7f;
   }
-  nav {
-    display: flex;
-    gap: 1rem;
+  nav a {
+    color: #ddd;
+    margin-left: 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 5px;
   }
-  nav button {
-    background: transparent;
-    border: none;
-    color: #e0e0e0;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.3s ease;
+  nav a.active,
+  nav a:hover {
+    color: #00ff7f;
   }
-  nav button:hover {
-    border-bottom: 2px solid #00ff99;
-  }
-  nav button.active {
-    border-bottom: 2px solid #00ff99;
-    font-weight: bold;
+  nav a.active::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #00ff7f;
+    left: 0;
+    bottom: 0;
   }
   main {
-    flex-grow: 1;
     padding: 2rem;
-    max-width: 900px;
-    margin: 0 auto;
+    text-align: center;
   }
-  section {
-    display: none;
-    animation: fadeIn 0.3s ease forwards;
+  main h2 {
+    margin-bottom: 0.5rem;
   }
-  section.active {
-    display: block;
+  /* Ícone do Discord flutuante */
+  #discord-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #5865f2;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 0 10px #5865f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
   }
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+  #discord-float:hover {
+    box-shadow: 0 0 20px #5865f2;
   }
-  h2 {
-    color: #00ff99;
-    margin-bottom: 1rem;
-  }
-  p {
-    line-height: 1.5;
-  }
-  a.discord-link {
-    color: #7289da;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  a.discord-link:hover {
-    text-decoration: underline;
-  }
-  /* Responsividade simples */
-  @media (max-width: 600px) {
-    nav {
-      flex-wrap: wrap;
-    }
+  #discord-float img {
+    width: 32px;
+    height: 32px;
   }
 </style>
 </head>
 <body>
+
 <header>
   <h1>Optimize Hub</h1>
   <nav>
-    <button class="tab-button active" data-tab="inicio">Início</button>
-    <button class="tab-button" data-tab="spoofer">Spoofer para Jogos</button>
-    <button class="tab-button" data-tab="discord">Discord</button>
-    <button class="tab-button" data-tab="arquivos">Arquivos</button>
-    <button class="tab-button" data-tab="metodos">Métodos</button>
-    <button class="tab-button" data-tab="cheats">Cheats</button>
+    <a href="#home" class="active">Início</a>
+    <a href="#spoofer">Spoofer para Jogos</a>
+    <a href="#arquivos">Arquivos</a>
+    <a href="#metodos">Métodos</a>
+    <a href="#cheats">Cheats</a>
   </nav>
 </header>
+
 <main>
-  <section id="inicio" class="active">
+  <section id="home">
     <h2>Bem-vindo ao Optimize Hub</h2>
     <p>Seu centro de otimizações, arquivos e ferramentas exclusivas.</p>
   </section>
-
-  <section id="spoofer">
-    <h2>Spoofer para Jogos</h2>
-    <p>Aqui você encontra ferramentas para proteger seu hardware e evitar banimentos em jogos.</p>
-  </section>
-
-  <section id="discord">
-    <h2>Discord</h2>
-    <p>Junte-se ao nosso servidor oficial no Discord para suporte, novidades e comunidade.</p>
-    <p><a href="https://discord.gg/FQCzHs7kTQ" target="_blank" rel="noopener" class="discord-link">Entrar no Discord</a></p>
-  </section>
-
-  <section id="arquivos">
-    <h2>Arquivos</h2>
-    <p>Downloads seguros e organizados de scripts, configs e muito mais.</p>
-  </section>
-
-  <section id="metodos">
-    <h2>Métodos</h2>
-    <p>Aprenda diferentes métodos de otimização e truques para melhorar seu desempenho.</p>
-  </section>
-
-  <section id="cheats">
-    <h2>Cheats</h2>
-    <p>Cheats selecionados e atualizados para os seus jogos favoritos.</p>
-  </section>
+  <!-- Você pode criar as outras seções aqui -->
 </main>
-<script>
-  // Seleciona todas as abas
-  const buttons = document.querySelectorAll('.tab-button');
-  const sections = document.querySelectorAll('main section');
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Remove a classe active de todas as abas e seções
-      buttons.forEach(b => b.classList.remove('active'));
-      sections.forEach(s => s.classList.remove('active'));
+<!-- Ícone Discord flutuante -->
+<a id="discord-float" href="https://discord.gg/FQCzHs7kTQ" target="_blank" title="Nosso Discord">
+  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" />
+</a>
 
-      // Adiciona active na aba clicada e seção correspondente
-      btn.classList.add('active');
-      const tab = btn.getAttribute('data-tab');
-      document.getElementById(tab).classList.add('active');
-    });
-  });
-</script>
 </body>
 </html>
