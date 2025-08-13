@@ -1,53 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimize Hub</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Optimize Hub</title>
+<style>
+  body {
+    background-color: #121212;
+    color: #00ff99;
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 20px;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .tab-label {
+    padding: 12px 25px;
+    cursor: pointer;
+    background-color: #222;
+    margin: 0 4px;
+    border-radius: 6px 6px 0 0;
+    transition: background-color 0.3s;
+  }
+  .tab-label:hover {
+    background-color: #333;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+  input[type="radio"]:checked + .tab-label {
+    background-color: #00ff99;
+    color: #000;
+    font-weight: bold;
+  }
+  .tab-content {
+    background-color: #1a1a1a;
+    border-radius: 0 6px 6px 6px;
+    padding: 25px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .tab {
+    display: none;
+  }
+  input[type="radio"]:checked + .tab-label + .tab {
+    display: block;
+  }
+  p {
+    line-height: 1.6;
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Optimize Hub</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Início</a></li>
-                <li><a href="#otimizacao">Otimização</a></li>
-                <li><a href="#arquivos">Arquivos</a></li>
-                <li><a href="#spoofer">Spoofer</a></li>
-                <li><a href="#metodos">Métodos</a></li>
-                <li><a href="https://discord.gg/Eff6JHBy" target="_blank">Discord</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="home">
-        <h2>Bem-vindo ao Optimize Hub</h2>
-        <p>Seu centro de otimizações, arquivos e ferramentas exclusivas.</p>
-    </section>
+<h1>Optimize Hub</h1>
 
-    <section id="otimizacao">
-        <h2>Otimização</h2>
-        <p>Melhore o desempenho do seu sistema com ferramentas de otimização desenvolvidas para máxima performance.</p>
-    </section>
+<div class="tabs">
+  <input type="radio" id="inicio" name="tabs" checked>
+  <label class="tab-label" for="inicio">Início</label>
+  <div class="tab-content tab">
+    <h2>Bem-vindo ao Optimize Hub</h2>
+    <p>Aqui você encontra Spoofer, Métodos, Cheats, Otimização e Arquivos no Discord.</p>
+  </div>
 
-    <section id="arquivos">
-        <h2>Arquivos</h2>
-        <p>Downloads seguros e organizados de scripts, configs e muito mais.</p>
-    </section>
+  <input type="radio" id="spoofer" name="tabs">
+  <label class="tab-label" for="spoofer">Spoofer</label>
+  <div class="tab-content tab">
+    <h2>Spoofer</h2>
+    <p>Explicação detalhada sobre o Spoofer, como ele funciona, usos e downloads.</p>
+  </div>
 
-    <section id="spoofer">
-        <h2>Spoofer</h2>
-        <p>Proteja-se com spoofers atualizados e funcionais. Evite bans e mantenha sua máquina segura.</p>
-    </section>
+  <input type="radio" id="metodos" name="tabs">
+  <label class="tab-label" for="metodos">Métodos</label>
+  <div class="tab-content tab">
+    <h2>Métodos</h2>
+    <p>Conteúdo explicando os métodos disponíveis e suas funcionalidades.</p>
+  </div>
 
-    <section id="metodos">
-        <h2>Métodos</h2>
-        <p>Guias, tutoriais e métodos avançados para tirar o máximo proveito das ferramentas disponíveis.</p>
-    </section>
+  <input type="radio" id="otimizacao" name="tabs">
+  <label class="tab-label" for="otimizacao">Otimização</label>
+  <div class="tab-content tab">
+    <h2>Otimização</h2>
+    <p>Ferramentas para melhorar o desempenho do seu sistema com máxima performance.</p>
+  </div>
 
-    <footer>
-        <p>&copy; 2025 Optimize Hub. Todos os direitos reservados.</p>
-    </footer>
+  <input type="radio" id="arquivos" name="tabs">
+  <label class="tab-label" for="arquivos">Arquivos</label>
+  <div class="tab-content tab">
+    <h2>Arquivos</h2>
+    <p>Downloads seguros e organizados de scripts, configs e muito mais.</p>
+  </div>
+</div>
+
 </body>
 </html>
